@@ -14,7 +14,7 @@
     "scan:apis:unenv": "node ./scan-apis.mjs --only wrangler-unenv",
     "generate:baseline": "node ./generate-baseline.mjs",
     "generate:table": "node ./generate-table-data.mjs",
-    "generate:timestamp": "echo '{ \"date\": \"${date}\"}' > report/src/data/timestamp",
+    "generate:timestamp": "echo \"{\\\"timestamp\\\":$(node -e 'console.log(Date.now())')}\" > report/src/data/timestamp.json",
     "generate:polyfill": "node ./generate-unenv-polyfill.mjs",
     "generate": "pnpm generate:baseline && pnpm generate:script && pnpm scan:apis && pnpm run generate:table",
     "generate:unenv": "pnpm scan:apis:unenv && pnpm run generate:table",

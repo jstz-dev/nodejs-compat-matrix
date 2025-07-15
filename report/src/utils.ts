@@ -23,6 +23,9 @@ export const getPolyfillSearchLink = (target: string, symbol: string) => {
     case "wranglerUnenv":
       filter = `repo:unjs/unenv path:/^src\\/runtime\\/node\\//`;
       break;
+    case "jstz":
+      filter = `repo:jstz-dev/jstz path:/^crates\\/jstz_runtime\\//`;
+      break;
     default:
       break;
   }

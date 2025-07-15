@@ -27,6 +27,7 @@ const targetTitles = {
   wranglerUnenv: "Cloudflare Workers",
   bun: "Bun",
   deno: "Deno",
+  jstz: "Jstz",
 };
 
 const rowSchema = z.tuple([

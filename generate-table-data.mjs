@@ -8,6 +8,7 @@ import bun from "./data/bun.json" with { type: "json" };
 import deno from "./data/deno.json" with { type: "json" };
 import wranglerUnenv from "./data/wrangler-unenv-polyfills.json" with { type: "json" };
 import versionMap from "./report/src/data/versionMap.json" with { type: "json" };
+import jstz from "./data/jstz.json" with { type: "json" };
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -18,6 +19,7 @@ const targets = {
   wranglerUnenv,
   bun,
   deno,
+  jstz
 };
 
 /* == COLUMNS ==================================
