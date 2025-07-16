@@ -21,6 +21,13 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Update unenv
         run: pnpm update unenv
+      # Keeping only *globals* because importing nodejs modules simply does not work in jstz.
+      - name: Truncate data
+        run: |
+          mkdir /tmp/data
+          for f in $(ls ./data); do cat ./data/$f | jq '."*globals*" | del(."*self*")' > /tmp/data/$f; done
+          rm ./data/*.json && mv /tmp/data/*.json ./data
+          pnpm run generate:table
       - name: Build
         run: cd report && pnpm run build
       - name: Upload static files as artifact
