@@ -1,60 +1,40 @@
-# Workers Node.js Support
+# Jstz Web API Support
 
-Quick and dirty audit of Node.js support across Workers. See <https://workers-nodejs-compat-matrix.pages.dev>
+Quick and dirty audit of Web API support in Jstz. See <https://jstz-dev.github.io/nodejs-compat-matrix/>.
+
+The report displayed is a truncated version of the [upstream report](https://workers-nodejs-compat-matrix.pages.dev). All Node.js APIs are removed because Jstz does not support Node.js APIs at all.
 
 ## Install
 
-Install Volta:
-
-```shell
-curl https://get.volta.sh | bash
-```
-
-Install Deno:
-
-```shell
-# see https://docs.deno.com/runtime/manual/getting_started/installation for alternatives
-brew install deno
-```
-
-Install Bun:
-
-```shell
-# see https://bun.sh/docs/installation for alternatives
-brew install oven-sh/bun/bun
-```
-
-Install the dependencies
+Get [pnpm](https://pnpm.io/installation) and then
 
 ```shell
 pnpm install
 ```
 
-## Generate the report
+## Generate the table
+
+Here all individual reports are assumed to be up-to-date. To update them, update the `dev` branch with upstream and then merge `dev` into `deploy`.
 
 > [!IMPORTANT]
-> Update Bun and Deno, i.e. using `brew upgrade`on mac.
-> Update `wrangler` and `workerd` in `pnpm-workspace.yaml` from wrangler's [package.json](https://github.com/cloudflare/workers-sdk/blob/main/packages/wrangler/package.json)
+> It's not recommended to update the individual reports locally as somehow the results are not consistent. Take the upstream repository as the source of truth.
 
 > [!IMPORTANT]
-> This requires features from Node v22, so if it isn't your default node version, run it with `volta run --node 22 pnpm generate`.
+> This requires features from Node v22, so if it isn't your default node version, run `nvm use 22` and proceed.
 
-- Update the catalog version in `pnpm-workspace.yaml`
+### Work with Jstz dev locally
 
-- Run:
+* Run the `api_coverage` test in [jstz_runtime](https://github.com/jstz-dev/jstz/tree/main/crates/jstz_runtime).
+* Copy the output report to `data/jstz.json`.
 
-  ```shell
-  pnpm update -r
-  ```
-
-- Generate the report
+### Generate the table
 
   ```shell
-  node --run generate
+  pnpm run generate:table
   ```
 
 ## Serve a local version of the report
 
 ```shell
-node --run report:dev
+pnpm run report:dev
 ```
