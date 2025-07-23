@@ -6,5 +6,5 @@
   "deno": "2.2.8",
   "workerd": "1.20250327.0",
   "wranglerUnenv": "4.5.1",
-  "jstz": ""
+  "jstz": "d3cd504"
 }
