@@ -190,12 +190,10 @@ csvData.unshift([
   "Path",
   "baseline",
   "node22",
-  "node20",
-  "node18",
+  "wranglerUnenv",
   "bun",
   "deno",
-  "workerd",
-  "wranglerUnenv",
+  "jstz",
 ]);
 
 const csvString = csvData

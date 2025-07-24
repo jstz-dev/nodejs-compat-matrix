@@ -277,7 +277,7 @@ const App = () => {
             <a
               className="hover:bg-blue-500 bg-blue-700 text-white text-sm font-semibold px-3 py-2 rounded-md flex items-center"
               href={`${process.env.PUBLIC_URL}/runtime-support.csv`}
-              download="workerd-nodejs-support.csv"
+              download="jstz-nodejs-support.csv"
             >
               Download (.csv)
             </a>
